@@ -1,6 +1,7 @@
 
 const http = require('http');
 const fs = require('fs')
+const myModule = require('./my-module.js'); 
 
 fs.readFile('file.txt', 'utf-8', (err, data) => {
     if (err)
@@ -33,7 +34,6 @@ https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
  console.log("Error: " + err.message);
 });
 
-const myModule = require('./my-module.js'); 
 console.log(myModule.myFunction()); 
 
 const myPromise = new Promise((resolve, reject) => { 
