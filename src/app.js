@@ -1,4 +1,19 @@
+
 const http = require('http');
+const fs = require('fs')
+
+fs.readFile('file.txt', 'utf-8', (err, data) => {
+    if (err)
+        throw err
+    console.log(data)
+})
+
+fs.writeFile('file.txt', 'Hello World!', (err) => {
+    if (err)
+        throw err
+    console.log('File Saved')
+})
+
 http.createServer(function (req, res) {
  res.writeHead(200, {'Content-Type': 'text/html'});
  res.write('Hello World!');
@@ -17,3 +32,4 @@ https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
 }).on('error', (err) => {
  console.log("Error: " + err.message);
 });
+
