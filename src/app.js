@@ -1,6 +1,7 @@
 
 const http = require('http');
 const fs = require('fs')
+const myModule = require('./my-module.js'); 
 
 fs.readFile('file.txt', 'utf-8', (err, data) => {
     if (err)
@@ -33,3 +34,29 @@ https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
  console.log("Error: " + err.message);
 });
 
+console.log(myModule.myFunction()); 
+
+const myPromise = new Promise((resolve, reject) => { 
+    if (condition) { 
+      resolve('Success!'); 
+    } else { 
+      reject('Failure!'); 
+    } 
+  }); 
+   
+  myPromise.then((result) => { 
+    console.log(result); 
+  }).catch((error) => { 
+    console.log(error); 
+  });
+
+  async function myFunction() { 
+    try { 
+      const result = await myPromise; 
+      console.log(result); 
+    } catch (error) { 
+      console.log(error); 
+    } 
+  } 
+   
+  myFunction(); 
